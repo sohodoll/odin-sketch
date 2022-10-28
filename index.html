@@ -3,20 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,
+    initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    </style>
+    <link rel="stylesheet" href="./style.css">
     <title>Sketch App</title>
 </head>
 <body>
     <div class="container">
         <div class="sketch">
             <div class="sketch__controls">
-                <div class="sketch__size size">
+                <div class="sketch__size size button">
                     <div class="size__input"></div>
                 </div>
-                <div class="sketch__start start"></div>
-                <div class="sketch__stop stop"></div>
-                <div class="sketch__erase erase"></div>
-                <div class="sketch__rainbow rainbow"></div>
+                <div class="sketch__start start button"></div>
+                <div class="sketch__stop stop button"></div>
+                <div class="sketch__erase erase button"></div>
+                <div class="sketch__rainbow rainbow button"></div>
             </div>
             <div class="sketch__grid grid">
                 <div class="grid__wrapper"></div>
