@@ -16,7 +16,10 @@
         <div class="sketch">
             <div class="sketch__controls">
                 <div class="sketch__size size button">SIZE
-                    <div class="size__input"></div>
+                    <div class="size__input-wrapper">
+                        <input type="range" id="size" name="size" min="1" max="10" step="1" value="1">
+                        <label class="size__label" for="size">1x1</label>
+                    </div>
                 </div>
                 <div class="sketch__start start button">START</div>
                 <div class="sketch__stop stop button">STOP</div>
