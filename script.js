@@ -63,11 +63,11 @@ const drawGrid = () => {
     sizeGrid();
 
     //check if mouse is down on a square
-    
-        grid.addEventListener('mousedown', () => {
+
+        window.addEventListener('mousedown', () => {
             mouseIsDown = true;
         });
-        grid.addEventListener('mouseup', () => {
+        window.addEventListener('mouseup', () => {
             mouseIsDown = false;
         });
 
