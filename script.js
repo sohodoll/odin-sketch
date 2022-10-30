@@ -49,6 +49,10 @@ const removeAllChildNodes = (parent) => {
 
 //draw grid according to the user input
 
+let squaresArray = [];
+let mouseIsDown = false;
+
+
 const drawGrid = () => {
     removeAllChildNodes(grid);
     let numberOfElements = size**2;
@@ -57,6 +61,26 @@ const drawGrid = () => {
         populateElement(grid, square);
     })
     sizeGrid();
+
+    //check if mouse is down on a square
+    
+        grid.addEventListener('mousedown', () => {
+            mouseIsDown = true;
+        });
+        grid.addEventListener('mouseup', () => {
+            mouseIsDown = false;
+        });
+
+    //change background color if mouse is down
+
+    squaresArray.forEach(square => {
+        square.addEventListener('mousemove', () => {
+            if(mouseIsDown) {
+                square.style.backgroundColor = 'black';
+            }
+        });
+    })
 };
 
 startButton.addEventListener('click', drawGrid);
+
