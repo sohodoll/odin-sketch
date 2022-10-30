@@ -121,8 +121,8 @@ body {
     height: 100%;
     width: 100%;
     display: flex;
-    border: 1px solid var(--second-accent);
     justify-content: space-around;
+    box-shadow: 1px 1px 10px 10px rgba(0, 0, 0, 0.137);
 }
 
 /*--sketch-controls--*/
@@ -130,7 +130,8 @@ body {
 .sketch__controls {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 3rem;
     align-items: center;
     height: 100%;
     color: var(--light);
@@ -149,8 +150,13 @@ body {
 }
 
 .button:active {
-    scale: 0.9;
+    scale: 0.97;
     box-shadow: none;
+}
+
+.active {
+    scale: 0.97;
+    background-color: var(--second-accent);
 }
 
 .size__input-wrapper,
@@ -174,16 +180,30 @@ body {
 } 
 
 .grid__wrapper {
-    width: 800px;
-    height: 800px;
+    width: 750px;
+    height: 750px;
     display: grid;
     grid-template-rows: repeat(1, 1fr);
-    border: 1px solid  var(--accent);
+    border: 2px solid var(--second-accent);
 }
 
 .grid__element {
     border: 1px solid  rgba(128, 128, 128, 0.075);
     cursor: pointer;
+    background-color: var(--dark);
+}
+
+/* footer */ 
+
+.credits {
+    position: absolute;
+    color: var(--light);
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    bottom: 2rem;
+    display: flex;
+    justify-content: center;
 }
 
 /* adaptive */

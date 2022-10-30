@@ -1,7 +1,12 @@
+//html elements
+
 const grid = document.querySelector('.grid__wrapper');
 const sizeInput = document.querySelector('#size');
 const sizeLabel = document.querySelector('.size__label');
 const startButton = document.querySelector('.start');
+const stopButton = document.querySelector('.stop');
+const eraseButton = document.querySelector('.erase');
+const rainbowButton = document.querySelector('.rainbow');
 
 //function creates required number of elements and returns an array of
 //these new elements
@@ -51,6 +56,7 @@ const removeAllChildNodes = (parent) => {
 
 let squaresArray = [];
 let mouseIsDown = false;
+let color = 'black';
 
 
 const drawGrid = () => {
@@ -76,11 +82,62 @@ const drawGrid = () => {
     squaresArray.forEach(square => {
         square.addEventListener('mousemove', () => {
             if(mouseIsDown) {
-                square.style.backgroundColor = 'black';
+                if(isRainbow) {
+                    color = rainbow[getRandomIndex()];
+                }
+                square.style.backgroundColor = color;
             }
         });
     })
 };
 
 startButton.addEventListener('click', drawGrid);
+
+//erase mode
+
+let isErasing = false;
+
+const eraseMode = () => {
+    if(!isErasing) {
+        eraseButton.classList.add('active');
+        rainbowButton.classList.remove('active');
+        isErasing = true;
+        isRainbow = false;
+        color = 'var(--dark)';
+    } else {
+        eraseButton.classList.remove('active');
+        isErasing = false;
+        color = 'black';
+    }
+}
+
+eraseButton.addEventListener('click', eraseMode);
+
+//rainbow mode
+
+const rainbow = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
+
+const getRandomIndex = () => {
+    return Math.floor(Math.random() * 5);
+}
+
+let isRainbow = false;
+
+const colorify = () => {
+    if(!isRainbow) {
+        isRainbow = true;
+        isErasing = false;
+        eraseButton.classList.remove('active');
+        rainbowButton.classList.add('active');
+    } else {
+        isRainbow = false;
+        color = 'black';
+        rainbowButton.classList.remove('active');
+    }
+}
+
+rainbowButton.addEventListener('click', colorify);
+
+
+
 
